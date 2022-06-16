@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background-color: lightblue;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container-wrapper {
+    min-height: 100vh;
+    padding: 50px 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+/*CARD*/
+.card-wrapper {
+    width: 90%;
+    height: 270px;
+    padding: 0 50px;
+    z-index: 2;
+    position: absolute;
+    top: 56px;
+    left: 5%;
+    perspective: 1000px;
+    background-color: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+    height: inherit;
+    background: url("https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/10.jpeg") ;
+    border-radius: 10px;
+    position: relative;
+
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    font-weight: 700;
+    color: white;
+}
+
+.card_flipped {
+    transform: rotateY(180deg);
+}
+
+.card__front, .card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card__back {
+    transform: rotateY(180deg);
+    padding: 30px 0;
+}
+
+.card__magnetLine {
+    width: 100%;
+    height: 50px;
+    background-color: #000;
+}
+
+.card__cvv {
+    width: 90%;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    color: black;
+    text-align: end;
+    padding: 12px 10px;
+}
+
+.card__back img {
+    display: inline-block;
+    height: 50px;
+    opacity: 0.8;
+}
+
+.card__number {
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    padding: 5px 0;
+    /*z-index: 1;*/
+}
+
+.card__cardHolder-expiration {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.expiration > span,
+.cardHolder > span {
+    display: block;
+    /*text-overflow: ellipsis " [..]";*/
+}
+
+.card__cardHolder-expiration__label {
+    color: gray;
+    font-size: .85rem;
+}
+
+.card__signa {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__signa img {
+    display: inline-block;
+    height: 50px;
+}
+
+
+
+/*FORM*/
+.form-wrapper {
+    background-color: white;
+    height: 600px;
+    width: 100%;
+    top: 187px;
+    justify-self: flex-end;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    padding: 40px 30px;
+}
+
+.card-input {
+    width: 100%;
+}
+
+.card-input span {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.card-input input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px gray solid;
+    font-size: 1.4rem;
+    padding-left: 20px;
+}
+
+/*.card-input input:focus {*/
+/*    border-color: cornflowerblue;*/
+/*}*/
+
+.card-input__select-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.card-input__select-wrapper select {
+    height: 50px;
+    border-radius: 5px;
+    width: 140px;
+    flex-grow: 1;
+    font-size: 1.4rem;
+    padding-left: 20px;
+}
+
+.form__card-date-cvv {
+    display: flex;
+    width: 100%;
+    gap: 60px;
+}
+
+
+.form-button {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #3273f6;
+    cursor: pointer;
+}
+
+.focus__border {
+    border: 2px white solid;
+    border-radius: 5px;
+    /*background-color: #000;*/
+    /*opacity: 0.2;*/
 }
